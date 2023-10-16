@@ -22,3 +22,6 @@ coverage
 
 # cache folder
 .cache
+
+.yalc
+yalc.lock
