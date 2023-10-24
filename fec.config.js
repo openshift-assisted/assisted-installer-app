@@ -1,5 +1,12 @@
 const path = require('path');
 
+/**
+ * @typedef {Object} FEConfig
+ * @property {string} appUrl
+ * @property {boolean} interceptChromeConfig
+ */
+
+/** @type {import('webpack').Configuration & FEConfig} */
 module.exports = {
   appUrl: '/openshift/assisted-installer-app',
   debug: true,
@@ -23,10 +30,10 @@ module.exports = {
   _unstableHotReload: process.env.HOT === 'true',
   moduleFederation: {
     exposes: {
-      "./RootApp": path.resolve(__dirname, "./src/AppEntry.tsx"),
-      "./SampleComponent": path.resolve(
+      './RootApp': path.resolve(__dirname, './src/AppEntry.tsx'),
+      './SampleComponent': path.resolve(
         __dirname,
-        "./src/Components/SampleComponent/sample-component.tsx"
+        './src/Components/SampleComponent/sample-component.tsx'
       ),
     },
     exclude: ['react-router-dom'],
