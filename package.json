@@ -13,7 +13,8 @@
     "lint:js:fix": "eslint config src --fix",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
     "patch:hosts": "fec patch-etc-hosts",
-    "start": "HOT=true fec dev --clouddotEnv=stage --uiEnv=stable",
+    "start": "HOT=true fec dev --clouddotEnv=prod --uiEnv=stable",
+    "start:federated": "fec static",
     "test": "jest",
     "postinstall": "rimraf .cache",
     "verify": "npm-run-all build lint test"
