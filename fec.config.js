@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   appUrl: '/openshift/assisted-installer-app',
   debug: true,
@@ -20,6 +22,13 @@ module.exports = {
   plugins: [],
   _unstableHotReload: process.env.HOT === 'true',
   moduleFederation: {
+    exposes: {
+      "./RootApp": path.resolve(__dirname, "./src/AppEntry.tsx"),
+      "./SampleComponent": path.resolve(
+        __dirname,
+        "./src/Components/SampleComponent/sample-component.tsx"
+      ),
+    },
     exclude: ['react-router-dom'],
     shared: [
       {
