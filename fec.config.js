@@ -38,10 +38,20 @@ module.exports = {
     exclude: ['react-router-dom'],
     shared: [
       {
+        react: {
+          singleton: true,
+          import: false,
+          requiredVersion: '>=16.8 || >=17',
+        },
+        'react-dom': {
+          singleton: true,
+          import: false,
+          requiredVersion: '>=16.8 || >=17',
+        },
         'react-router-dom': {
           singleton: true,
           import: false,
-          requiredVersion: '^6.3.0',
+          requiredVersion: '^5.3.0',
         },
       },
     ],
