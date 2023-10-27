@@ -30,7 +30,6 @@ module.exports = {
   _unstableHotReload: process.env.HOT === 'true',
   moduleFederation: {
     exposes: {
-      './RootApp': path.resolve(__dirname, './src/AppEntry.tsx'),
       './TechnologyPreview': path.resolve(
         __dirname,
         './src/Components/technology-preview.ts'
