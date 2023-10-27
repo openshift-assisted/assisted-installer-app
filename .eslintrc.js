@@ -1,3 +1,4 @@
+/** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
   extends: '@redhat-cloud-services/eslint-config-redhat-cloud-services',
   globals: {
