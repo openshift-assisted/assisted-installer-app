@@ -31,9 +31,9 @@ module.exports = {
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/AppEntry.tsx'),
-      './SampleComponent': path.resolve(
+      './TechnologyPreview': path.resolve(
         __dirname,
-        './src/Components/SampleComponent/sample-component.tsx'
+        './src/Components/technology-preview.ts'
       ),
     },
     exclude: ['react-router-dom'],
