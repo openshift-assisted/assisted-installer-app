@@ -32,7 +32,11 @@ module.exports = {
     exposes: {
       './TechnologyPreview': path.resolve(
         __dirname,
-        './src/Components/technology-preview.ts'
+        './src/components/technology-preview.ts'
+      ),
+      './NoPermissionsError': path.resolve(
+        __dirname,
+        './src/components/no-permissions-error.ts'
       ),
     },
     exclude: ['react-router-dom'],
