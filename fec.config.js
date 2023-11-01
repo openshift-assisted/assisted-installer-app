@@ -15,7 +15,7 @@ module.exports = {
   /**
    * Change accordingly to your appname in package.json.
    * The `sassPrefix` attribute is only required if your `appname` includes the dash `-` characters.
-   * If the dash character is present, you will have add a camelCase version of it to the sassPrefix.
+   * If the dash character is present, you will have to add a camelCase version of it to the sassPrefix.
    * If it does not contain the dash character, remove this configuration.
    */
   sassPrefix: '.assisted-installer-app, .assistedInstallerApp',
@@ -30,16 +30,9 @@ module.exports = {
   _unstableHotReload: process.env.HOT === 'true',
   moduleFederation: {
     exposes: {
-      './TechnologyPreview': path.resolve(
-        __dirname,
-        './src/components/technology-preview.ts'
-      ),
-      './NoPermissionsError': path.resolve(
-        __dirname,
-        './src/components/no-permissions-error.ts'
-      ),
+      './RootApp': path.resolve(__dirname, './src/components/root-app.tsx'),
     },
-    exclude: ['react-router-dom'],
+    exclude: ['react', 'react-dom'],
     shared: [
       {
         react: {
@@ -51,11 +44,6 @@ module.exports = {
           singleton: true,
           import: false,
           requiredVersion: '>=16.8 || >=17',
-        },
-        'react-router-dom': {
-          singleton: true,
-          import: false,
-          requiredVersion: '^5.3.0',
         },
       },
     ],
