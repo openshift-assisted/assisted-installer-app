@@ -1,5 +1,12 @@
 const path = require('path');
 
+/**
+ * @typedef {Object} FEConfig
+ * @property {string} appUrl
+ * @property {boolean} interceptChromeConfig
+ */
+
+/** @type {import('webpack').Configuration & FEConfig} */
 module.exports = {
   appUrl: '/openshift/assisted-installer-app',
   debug: true,
@@ -8,7 +15,7 @@ module.exports = {
   /**
    * Change accordingly to your appname in package.json.
    * The `sassPrefix` attribute is only required if your `appname` includes the dash `-` characters.
-   * If the dash character is present, you will have add a camelCase version of it to the sassPrefix.
+   * If the dash character is present, you will have to add a camelCase version of it to the sassPrefix.
    * If it does not contain the dash character, remove this configuration.
    */
   sassPrefix: '.assisted-installer-app, .assistedInstallerApp',
@@ -23,19 +30,20 @@ module.exports = {
   _unstableHotReload: process.env.HOT === 'true',
   moduleFederation: {
     exposes: {
-      "./RootApp": path.resolve(__dirname, "./src/AppEntry.tsx"),
-      "./SampleComponent": path.resolve(
-        __dirname,
-        "./src/Components/SampleComponent/sample-component.tsx"
-      ),
+      './RootApp': path.resolve(__dirname, './src/components/root-app.tsx'),
     },
-    exclude: ['react-router-dom'],
+    exclude: ['react', 'react-dom'],
     shared: [
       {
-        'react-router-dom': {
+        react: {
           singleton: true,
           import: false,
-          requiredVersion: '^6.3.0',
+          requiredVersion: '>=16.8 || >=17',
+        },
+        'react-dom': {
+          singleton: true,
+          import: false,
+          requiredVersion: '>=16.8 || >=17',
         },
       },
     ],

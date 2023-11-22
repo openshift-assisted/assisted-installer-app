@@ -1,3 +1,4 @@
+/** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
   extends: '@redhat-cloud-services/eslint-config-redhat-cloud-services',
   globals: {
@@ -14,7 +15,10 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
         'react/prop-types': 'off',
-        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          { argsIgnorePattern: '^_' },
+        ],
       },
     },
   ],
