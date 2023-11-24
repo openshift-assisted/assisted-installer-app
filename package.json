@@ -21,9 +21,9 @@
     "verify": "npm-run-all build lint test"
   },
   "dependencies": {
-    "@openshift-assisted/locales": "file:.yalc/@openshift-assisted/locales",
-    "@openshift-assisted/types": "file:.yalc/@openshift-assisted/types",
-    "@openshift-assisted/ui-lib": "file:.yalc/@openshift-assisted/ui-lib",
+    "@openshift-assisted/locales": "2.27.1",
+    "@openshift-assisted/types": "2.27.1",
+    "@openshift-assisted/ui-lib": "2.27.1",
     "@patternfly/react-core": "4.250.1",
     "@patternfly/react-table": "4.111.33",
     "@redhat-cloud-services/frontend-components": "^3.9.25",
