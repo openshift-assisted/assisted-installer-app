@@ -9,10 +9,10 @@ import { AxiosInstance, AxiosRequestConfig } from 'axios';
 const { setRouteBasePath } = Config;
 setRouteBasePath('/assisted-installer');
 
-//TODO: we need to get this info from uhc-portal
+//TODO: we need to get this from env variable
 const apiGateway = 'https://api.stage.openshift.com';
 
-export const foo = (
+export const buildAuthInterceptor = (
   token: string
 ): ((client: AxiosInstance) => AxiosInstance) => {
   const authInterceptor = (client: AxiosInstance): AxiosInstance => {
@@ -44,7 +44,7 @@ const RootApp: React.FC<{ allEnabledFeatures: FeatureListType }> = (props) => {
       .then(() => auth.getToken())
       .then((token) => {
         if (token) {
-          Api.setAuthInterceptor(foo(token));
+          Api.setAuthInterceptor(buildAuthInterceptor(token));
         }
       })
       .finally(() => setIsLoading(false));
