@@ -9,21 +9,20 @@ objects:
     metadata:
       name: assisted-installer-app
     spec:
-      API:
-        versions:
-          - v1
       envName: ${ENV_NAME}
       title: Assisted Installer
-      deploymentRepo: https://github.com/openshift-assisted/assisted-installer-ui
+      deploymentRepo: https://github.com/openshift-assisted/assisted-installer-app
       frontend:
         paths:
           - /apps/assisted-installer-app
+      API:
+        versions:
+          - v1
       image: ${IMAGE}:${IMAGE_TAG}
-
       module:
-        manifestLocation: '/apps/frontend-starter-app/fed-mods.json'
+        manifestLocation: '/apps/assisted-installer-app/fed-mods.json'
         modules:
-          - id: 'overview'
+          - id: 'assisted-installer-app'
             module: './RootApp'
             routes:
               - pathname: /openshift/assisted-installer-app
@@ -34,4 +33,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/app-sre/assisted-installer-app
+    value: quay.io/cloudservices/assisted-installer-app
