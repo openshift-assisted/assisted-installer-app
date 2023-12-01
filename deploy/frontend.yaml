@@ -33,4 +33,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/cloudservices/assisted-installer-app
+    value: quay.io/app-sre/assisted-installer-app
