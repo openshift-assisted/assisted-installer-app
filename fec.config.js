@@ -39,6 +39,10 @@ module.exports = {
         __dirname,
         './src/components/nopermissionserror.tsx'
       ),
+      './ExternalLink': path.resolve(
+        __dirname,
+        './src/components/externallink.tsx'
+      ),
     },
     exclude: ['react', 'react-dom'],
     shared: [
