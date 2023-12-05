@@ -35,6 +35,10 @@ module.exports = {
         __dirname,
         './src/components/technologypreview.tsx'
       ),
+      './ExternalLink': path.resolve(
+        __dirname,
+        './src/components/externallink.tsx'
+      ),
     },
     exclude: ['react', 'react-dom'],
     shared: [
