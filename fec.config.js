@@ -35,6 +35,10 @@ module.exports = {
         __dirname,
         './src/components/technologypreview.tsx'
       ),
+      './NoPermissionsError': path.resolve(
+        __dirname,
+        './src/components/nopermissionserror.tsx'
+      ),
     },
     exclude: ['react', 'react-dom'],
     shared: [
