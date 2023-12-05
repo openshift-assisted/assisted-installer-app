@@ -31,6 +31,10 @@ module.exports = {
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/components/root-app.tsx'),
+      './TechnologyPreview': path.resolve(
+        __dirname,
+        './src/components/technologypreview.tsx'
+      ),
     },
     exclude: ['react', 'react-dom'],
     shared: [
