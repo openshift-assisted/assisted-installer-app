@@ -5,9 +5,11 @@ import { BrowserRouter } from "react-router-dom";
 import "../i18n";
 import { useChrome } from "@redhat-cloud-services/frontend-components/useChrome";
 import { AxiosInstance, AxiosRequestConfig } from "axios";
+const { setRouteBasePath } = Config;
 
-const apiGateway =
-  process.env.REACT_APP_API_GATEWAY || "https://api.stage.openshift.com";
+setRouteBasePath("/assisted-installer");
+
+const apiGateway = "https://api.stage.openshift.com";
 
 function getBaseUrl(baseURL: string | undefined) {
   return baseURL || apiGateway;
@@ -50,7 +52,6 @@ const RootApp: React.FC<{ allEnabledFeatures: FeatureListType }> = (props) => {
       .then(() => auth.getToken())
       .then((token) => {
         Api.setAuthInterceptor(buildAuthInterceptor(token));
-        Config.setRouteBasePath("/assisted-installer");
       })
       .finally(() => setIsLoading(false));
   }, []);
