@@ -30,18 +30,18 @@ module.exports = {
   _unstableHotReload: process.env.HOT === 'true',
   moduleFederation: {
     exposes: {
-      './RootApp': path.resolve(__dirname, './src/components/root-app.tsx'),
+      './RootApp': path.resolve(__dirname, './src/components/RootApp.tsx'),
       './TechnologyPreview': path.resolve(
         __dirname,
-        './src/components/technologypreview.tsx'
+        './src/components/TechnologyPreview.tsx'
       ),
       './NoPermissionsError': path.resolve(
         __dirname,
-        './src/components/nopermissionserror.tsx'
+        './src/components/NoPermissionsError.tsx'
       ),
       './ExternalLink': path.resolve(
         __dirname,
-        './src/components/externallink.tsx'
+        './src/components/ExternalLink.tsx'
       ),
     },
     exclude: ['react', 'react-dom'],
