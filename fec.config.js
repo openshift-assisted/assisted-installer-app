@@ -27,7 +27,7 @@ module.exports = {
    * Add additional webpack plugins
    */
   plugins: [],
-  _unstableHotReload: process.env.HOT === 'true',
+  hotReload: process.env.HOT === 'true',
   moduleFederation: {
     exposes: {
       './RootApp': path.resolve(__dirname, './src/components/RootApp.tsx'),

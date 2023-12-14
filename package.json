@@ -6,7 +6,7 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "build": "fec build",
+    "build": "BETA=false fec build",
     "clean": "rimraf node_modules dist .cache",
     "deploy": "npm-run-all build lint test",
     "lint": "npm-run-all lint:*",
@@ -14,7 +14,7 @@
     "lint:js:fix": "eslint config src --fix",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
     "patch:hosts": "fec patch-etc-hosts",
-    "start": "HOT=true fec dev --clouddotEnv=prod --uiEnv=stable",
+    "start": "HOT=true fec dev --clouddotEnv=stage --uiEnv=stable",
     "start:federated": "fec static",
     "test": "TZ=UTC jest --verbose --no-cache",
     "postinstall": "rimraf .cache",
@@ -27,7 +27,7 @@
     "@openshift-assisted/ui-lib": "2.27.1",
     "@patternfly/react-core": "4.250.1",
     "@patternfly/react-table": "4.111.33",
-    "@redhat-cloud-services/frontend-components": "^3.9.25",
+    "@redhat-cloud-services/frontend-components": "^3.11.10",
     "@reduxjs/toolkit": "^1.9.1",
     "@sentry/browser": "^5.19.1 || ^6",
     "axios": ">=0.22.0 <1.0.0",
