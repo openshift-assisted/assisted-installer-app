@@ -42,12 +42,12 @@ function RootApp({
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    Config.setRouteBasePath(routeBasePath);
     auth
       .getUser()
       .then(() => auth.getToken())
       .then((token) => {
         Api.setAuthInterceptor(buildAuthInterceptor(token));
-        Config.setRouteBasePath(routeBasePath);
       })
       .finally(() => setIsLoading(false));
   }, []);
