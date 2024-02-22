@@ -1,11 +1,7 @@
-/** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
   extends: '@redhat-cloud-services/eslint-config-redhat-cloud-services',
   globals: {
     insights: 'readonly',
-    shallow: 'readonly',
-    render: 'readonly',
-    mount: 'readonly',
   },
   overrides: [
     {
@@ -15,10 +11,7 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
         'react/prop-types': 'off',
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          { argsIgnorePattern: '^_' },
-        ],
+        '@typescript-eslint/no-unused-vars': 'error',
       },
     },
   ],
@@ -29,5 +22,7 @@ module.exports = {
         ignoreDeclarationSort: true,
       },
     ],
+    // Enable this if you want to use absolute import paths
+    'rulesdir/forbid-pf-relative-imports': 'off',
   },
 };

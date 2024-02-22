@@ -1,12 +1,5 @@
 const path = require('path');
 
-/**
- * @typedef {Object} FEConfig
- * @property {string} appUrl
- * @property {boolean} interceptChromeConfig
- */
-
-/** @type {import('webpack').Configuration & FEConfig} */
 module.exports = {
   appUrl: '/openshift/assisted-installer-app',
   debug: true,
@@ -33,31 +26,18 @@ module.exports = {
       './RootApp': path.resolve(__dirname, './src/components/RootApp.tsx'),
       './TechnologyPreview': path.resolve(
         __dirname,
-        './src/components/TechnologyPreview.tsx'
+        './src/components/TechnologyPreview.tsx',
       ),
       './NoPermissionsError': path.resolve(
         __dirname,
-        './src/components/NoPermissionsError.tsx'
+        './src/components/NoPermissionsError.tsx',
       ),
       './ExternalLink': path.resolve(
         __dirname,
-        './src/components/ExternalLink.tsx'
+        './src/components/ExternalLink.tsx',
       ),
     },
-    exclude: ['react', 'react-dom'],
-    shared: [
-      {
-        react: {
-          singleton: true,
-          import: false,
-          requiredVersion: '>=16.8 || >=17',
-        },
-        'react-dom': {
-          singleton: true,
-          import: false,
-          requiredVersion: '>=16.8 || >=17',
-        },
-      },
-    ],
+    exclude: [],
+    shared: [],
   },
 };
