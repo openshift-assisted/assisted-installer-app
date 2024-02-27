@@ -4,19 +4,33 @@ import type { FeatureListType } from '@openshift-assisted/ui-lib/common';
 import { BrowserRouter } from 'react-router-dom';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import '../i18n';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
-const apiGateway = 'https://api.stage.openshift.com';
+const apiGatewayStage = 'https://api.stage.openshift.com';
+const apiGatewayProd = 'https://api.openshift.com';
 
-const authInterceptor = (client: AxiosInstance): AxiosInstance => {
-  client.interceptors.request.use((config) => {
-    const BASE_URL = config.baseURL || apiGateway;
-    const updatedConfig: AxiosRequestConfig = {
-      ...config,
-      url: `${BASE_URL}${config.url}`,
-    };
-    return updatedConfig;
-  });
-  return client;
+const getBaseUrl = (environment: string): string => {
+  if (environment === 'prod') {
+    return apiGatewayProd;
+  }
+  return apiGatewayStage;
+};
+
+export const buildAuthInterceptor = (
+  environment: string,
+): ((client: AxiosInstance) => AxiosInstance) => {
+  const authInterceptor = (client: AxiosInstance): AxiosInstance => {
+    client.interceptors.request.use((config) => {
+      const BASE_URL = config.baseURL || getBaseUrl(environment);
+      const updatedConfig: AxiosRequestConfig = {
+        ...config,
+        url: `${BASE_URL}${config.url}`,
+      };
+      return updatedConfig;
+    });
+    return client;
+  };
+  return authInterceptor;
 };
 
 function RootApp({
@@ -27,11 +41,11 @@ function RootApp({
   routeBasePath?: string;
 }) {
   const [hasNotBeenSetted, setHasNotBeenSetted] = useState(true);
-
+  const chrome = useChrome();
   useEffect(() => {
     Config.setRouteBasePath(routeBasePath);
     if (hasNotBeenSetted) {
-      Api.setAuthInterceptor(authInterceptor);
+      Api.setAuthInterceptor(buildAuthInterceptor(chrome.getEnvironment()));
       setHasNotBeenSetted(false);
     }
   }, [hasNotBeenSetted]);
