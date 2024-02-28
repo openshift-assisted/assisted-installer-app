@@ -15,7 +15,7 @@
     "patch:hosts": "fec patch-etc-hosts",
     "start": "HOT=true fec dev --clouddotEnv=stage --uiEnv=stable",
     "start:federated": "fec static",
-    "test": "TZ=UTC jest --verbose --no-cache",
+    "test": "TZ=UTC jest --verbose --no-cache --passWithNoTests",
     "postinstall": "ts-patch install && rimraf .cache",
     "verify": "npm-run-all build lint test",
     "prettier": "prettier --write src"
