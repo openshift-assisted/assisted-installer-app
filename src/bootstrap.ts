@@ -1,12 +1,10 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import RootApp from './components/RootApp';
 
 function bootstrap() {
-  const rootElement = document.getElementById('root');
-  render(React.createElement(RootApp), rootElement, () =>
-    rootElement?.setAttribute('data-ouia-safe', 'true'),
-  );
+  const root = createRoot(document.getElementById('root') as HTMLElement);
+  root.render(React.createElement(RootApp));
 }
 
 bootstrap();
