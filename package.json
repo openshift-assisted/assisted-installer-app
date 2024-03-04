@@ -21,9 +21,9 @@
     "prettier": "prettier --write src"
   },
   "dependencies": {
-    "@openshift-assisted/locales": "2.30.4",
-    "@openshift-assisted/types": "2.30.4",
-    "@openshift-assisted/ui-lib": "2.30.4",
+    "@openshift-assisted/locales": "2.31.0",
+    "@openshift-assisted/types": "2.31.0",
+    "@openshift-assisted/ui-lib": "2.31.0",
     "@redhat-cloud-services/frontend-components": "^4.1.0",
     "axios": ">=0.22.0 <1.0.0",
     "i18next": "^20.4.0",
