@@ -36,6 +36,30 @@ module.exports = {
         __dirname,
         './src/components/ExternalLink.tsx',
       ),
+      './AssistedInstallerDetailCard': path.resolve(
+        __dirname,
+        './src/components/AssistedInstallerDetailCard.tsx',
+      ),
+      './AssistedInstallerExtraDetailCard': path.resolve(
+        __dirname,
+        './src/components/AssistedInstallerExtraDetailCard.tsx',
+      ),
+      './ClusterStatus': path.resolve(
+        __dirname,
+        './src/components/ClusterStatus.tsx',
+      ),
+      './FeatureSupportsLevel': path.resolve(
+        __dirname,
+        './src/components/FeatureSupportsLevel.tsx',
+      ),
+      './HostsClusterDetailTab': path.resolve(
+        __dirname,
+        './src/components/HostsClusterDetailTab.tsx',
+      ),
+      './Services': path.resolve(
+        __dirname,
+        './src/components/Services.tsx',
+      ),
     },
     exclude: [],
     shared: [],
