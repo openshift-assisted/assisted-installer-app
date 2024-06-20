@@ -5,6 +5,7 @@ module.exports = {
   debug: true,
   useProxy: true,
   proxyVerbose: true,
+  stripAllPfStyles: true,
   /**
    * Change accordingly to your appname in package.json.
    * The `sassPrefix` attribute is only required if your `appname` includes the dash `-` characters.
