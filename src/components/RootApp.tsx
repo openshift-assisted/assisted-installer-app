@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Api, Config, Routes } from '@openshift-assisted/ui-lib/ocm';
+import { Api, Config, UILibRoutes } from '@openshift-assisted/ui-lib/ocm';
 import type { FeatureListType } from '@openshift-assisted/ui-lib/common';
 import { BrowserRouter } from 'react-router-dom';
+import { CompatRouter } from 'react-router-dom-v5-compat';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import '../i18n';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
@@ -53,7 +54,9 @@ function RootApp({
   return (
     <React.StrictMode>
       <BrowserRouter basename={'/openshift'}>
-        <Routes allEnabledFeatures={allEnabledFeatures} />
+        <CompatRouter>
+          <UILibRoutes allEnabledFeatures={allEnabledFeatures} />
+        </CompatRouter>
       </BrowserRouter>
     </React.StrictMode>
   );
