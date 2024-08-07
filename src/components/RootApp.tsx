@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Api, Config, Routes } from '@openshift-assisted/ui-lib/ocm';
-import type { FeatureListType } from '@openshift-assisted/ui-lib/common';
 import { BrowserRouter } from 'react-router-dom';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import '../i18n';
@@ -34,10 +33,8 @@ export const buildAuthInterceptor = (
 };
 
 function RootApp({
-  allEnabledFeatures,
-  routeBasePath = '/assisted-installer-app',
+  routeBasePath = '/assisted-installer',
 }: {
-  allEnabledFeatures: FeatureListType;
   routeBasePath?: string;
 }) {
   const [hasNotBeenSetted, setHasNotBeenSetted] = useState(true);
@@ -53,7 +50,7 @@ function RootApp({
   return (
     <React.StrictMode>
       <BrowserRouter basename={'/openshift'}>
-        <Routes allEnabledFeatures={allEnabledFeatures} />
+        <Routes />
       </BrowserRouter>
     </React.StrictMode>
   );
