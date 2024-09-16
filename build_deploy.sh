@@ -9,6 +9,7 @@ export COMPONENT="assisted-installer"
 export IMAGE="quay.io/app-sre/assisted-installer-app"
 export WORKSPACE=${WORKSPACE:-$APP_ROOT} # if running in jenkins, use the build's workspace
 export APP_ROOT=$(pwd)
+export IMAGE_TAG=$(git rev-parse HEAD)
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
 
 set -exv
