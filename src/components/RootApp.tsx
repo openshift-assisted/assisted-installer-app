@@ -1,64 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   Api,
   Config,
   UILibRoutes as Routes,
 } from '@openshift-assisted/ui-lib/ocm';
-import { BrowserRouter } from 'react-router-dom';
-import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AxiosInstance } from 'axios';
 import '../i18n';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
-import { CompatRouter } from 'react-router-dom-v5-compat';
-
-const apiGatewayStage = 'https://api.stage.openshift.com';
-const apiGatewayProd = 'https://api.openshift.com';
-
-const getBaseUrl = (environment: string): string => {
-  if (environment === 'prod') {
-    return apiGatewayProd;
-  }
-  return apiGatewayStage;
-};
-
-export const buildAuthInterceptor = (
-  environment: string,
-): ((client: AxiosInstance) => AxiosInstance) => {
-  const authInterceptor = (client: AxiosInstance): AxiosInstance => {
-    client.interceptors.request.use((config) => {
-      const BASE_URL = config.baseURL || getBaseUrl(environment);
-      const updatedConfig: AxiosRequestConfig = {
-        ...config,
-        url: `${BASE_URL}${config.url}`,
-      };
-      return updatedConfig;
-    });
-    return client;
-  };
-  return authInterceptor;
-};
+import { HistoryRouterProps } from 'react-router-dom-v5-compat';
 
 function RootApp({
   routeBasePath = '/assisted-installer-app',
+  authInterceptor,
+  history,
 }: {
   routeBasePath?: string;
+  authInterceptor: (client: AxiosInstance) => AxiosInstance;
+  history?: HistoryRouterProps['history'];
 }) {
-  const [hasNotBeenSetted, setHasNotBeenSetted] = useState(true);
-  const chrome = useChrome();
-  useEffect(() => {
-    Config.setRouteBasePath(routeBasePath);
-    if (hasNotBeenSetted) {
-      Api.setAuthInterceptor(buildAuthInterceptor(chrome.getEnvironment()));
-      setHasNotBeenSetted(false);
-    }
-  }, [hasNotBeenSetted]);
+  Api.setAuthInterceptor(authInterceptor);
+
+  Config.setRouteBasePath(routeBasePath);
 
   return (
     <React.StrictMode>
-      <BrowserRouter basename={'/openshift'}>
-        <CompatRouter>
-          <Routes allEnabledFeatures={{}} />
-        </CompatRouter>
-      </BrowserRouter>
+      <Routes
+        allEnabledFeatures={{}}
+        history={history}
+        basename={'/openshift'}
+      />
     </React.StrictMode>
   );
 }
