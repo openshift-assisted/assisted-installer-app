@@ -1,26 +1,17 @@
 import React from 'react';
-import {
-  Api,
-  Config,
-  UILibRoutes as Routes,
-} from '@openshift-assisted/ui-lib/ocm';
-import { AxiosInstance } from 'axios';
+import { UILibRoutes as Routes } from '@openshift-assisted/ui-lib/ocm';
 import '../i18n';
 import { HistoryRouterProps } from 'react-router-dom-v5-compat';
+import { useInitApp } from '../hooks/useInitApp';
 
-function RootApp({
+const RootApp = ({
   routeBasePath = '/assisted-installer-app',
-  authInterceptor,
   history,
 }: {
   routeBasePath?: string;
-  authInterceptor: (client: AxiosInstance) => AxiosInstance;
   history?: HistoryRouterProps['history'];
-}) {
-  Api.setAuthInterceptor(authInterceptor);
-
-  Config.setRouteBasePath(routeBasePath);
-
+}) => {
+  useInitApp(routeBasePath);
   return (
     <React.StrictMode>
       <Routes
@@ -30,6 +21,6 @@ function RootApp({
       />
     </React.StrictMode>
   );
-}
+};
 
 export default RootApp;
