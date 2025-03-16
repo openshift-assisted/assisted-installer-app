@@ -1,25 +1,25 @@
 import { Api, Config } from '@openshift-assisted/ui-lib/ocm';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
+
+declare global {
+  interface Window {
+    ocmConfig?: {
+      configData?: {
+        apiGateway?: string;
+      };
+    };
+  }
+}
 
 let initialized = false;
 
-const apiGatewayStage = 'https://api.stage.openshift.com';
-const apiGatewayProd = 'https://api.openshift.com';
+const getBaseUrl = (): string =>
+  window.ocmConfig?.configData?.apiGateway || 'https://api.openshift.com';
 
-const getBaseUrl = (environment: string): string => {
-  if (environment === 'prod') {
-    return apiGatewayProd;
-  }
-  return apiGatewayStage;
-};
-
-const buildAuthInterceptor = (
-  environment: string,
-): ((client: AxiosInstance) => AxiosInstance) => {
+const buildAuthInterceptor = (): ((client: AxiosInstance) => AxiosInstance) => {
   const authInterceptor = (client: AxiosInstance): AxiosInstance => {
     client.interceptors.request.use((config) => {
-      const BASE_URL = config.baseURL || getBaseUrl(environment);
+      const BASE_URL = config.baseURL || getBaseUrl();
       const updatedConfig: AxiosRequestConfig = {
         ...config,
         url: `${BASE_URL}${config.url}`,
@@ -31,12 +31,11 @@ const buildAuthInterceptor = (
   return authInterceptor;
 };
 
-export const useInitApp = (routeBasePath = '/assisted-installer-app') => {
-  const chrome = useChrome();
+export const useInitApp = () => {
   if (!initialized) {
     // init only once
     initialized = true;
-    Config.setRouteBasePath(routeBasePath);
-    Api.setAuthInterceptor(buildAuthInterceptor(chrome.getEnvironment()));
+    Config.setRouteBasePath('/assisted-installer-app');
+    Api.setAuthInterceptor(buildAuthInterceptor());
   }
 };

@@ -1,23 +1,20 @@
 import React from 'react';
 import { UILibRoutes as Routes } from '@openshift-assisted/ui-lib/ocm';
-import '../i18n';
 import { HistoryRouterProps } from 'react-router-dom-v5-compat';
-import { useInitApp } from '../hooks/useInitApp';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
-const RootApp = ({
-  routeBasePath = '/assisted-installer-app',
-  history,
-}: {
-  routeBasePath?: string;
-  history?: HistoryRouterProps['history'];
-}) => {
-  useInitApp(routeBasePath);
+import { useInitApp } from '../hooks/useInitApp';
+import '../i18n';
+
+const RootApp = () => {
+  const { chromeHistory } = useChrome();
+  useInitApp();
   return (
     <React.StrictMode>
       <Routes
         allEnabledFeatures={{}}
-        history={history}
-        basename={'/openshift'}
+        history={chromeHistory as unknown as HistoryRouterProps['history']}
+        basename="/openshift"
       />
     </React.StrictMode>
   );
