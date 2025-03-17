@@ -1,6 +1,8 @@
 import { Api, Config } from '@openshift-assisted/ui-lib/ocm';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 
+import '../i18n';
+
 declare global {
   interface Window {
     ocmConfig?: {

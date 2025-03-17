@@ -4,7 +4,6 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { HistoryRouterProps } from 'react-router-dom-v5-compat';
 
 import { useInitApp } from '../hooks/useInitApp';
-import '../i18n';
 
 type DetailsCardProps = Omit<
   React.ComponentProps<typeof AIDetailsCard>,
