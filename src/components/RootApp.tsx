@@ -4,7 +4,6 @@ import { HistoryRouterProps } from 'react-router-dom-v5-compat';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import { useInitApp } from '../hooks/useInitApp';
-import '../i18n';
 
 const RootApp = () => {
   const { chromeHistory } = useChrome();
