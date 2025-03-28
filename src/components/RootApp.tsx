@@ -10,11 +10,13 @@ const RootApp = () => {
   useInitApp();
   return (
     <React.StrictMode>
-      <Routes
-        allEnabledFeatures={{}}
-        history={chromeHistory as unknown as HistoryRouterProps['history']}
-        basename="/openshift"
-      />
+      <div style={{ overflowY: 'auto', height: '100%' }}>
+        <Routes
+          allEnabledFeatures={{}}
+          history={chromeHistory as unknown as HistoryRouterProps['history']}
+          basename="/openshift"
+        />
+      </div>
     </React.StrictMode>
   );
 };
