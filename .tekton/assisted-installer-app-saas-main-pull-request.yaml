@@ -400,6 +400,11 @@ spec:
         values:
         - "false"
     - name: sast-snyk-check
+      params:
+      - name: image-url
+        value: $(tasks.build-container.results.IMAGE_URL)
+      - name: image-digest
+        value: $(tasks.build-container.results.IMAGE_DIGEST)
       runAfter:
       - clone-repository
       taskRef:
