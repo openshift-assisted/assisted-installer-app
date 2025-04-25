@@ -533,7 +533,8 @@ spec:
     - name: workspace
     - name: git-auth
       optional: true
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-assisted-installer-app-saas-main
   workspaces:
   - name: workspace
     volumeClaimTemplate:
