@@ -24,7 +24,9 @@ const buildAuthInterceptor = (): ((client: AxiosInstance) => AxiosInstance) => {
       const BASE_URL = config.baseURL || getBaseUrl();
       const updatedConfig: AxiosRequestConfig = {
         ...config,
-        url: `${BASE_URL}${config.url}`,
+        url: config.url?.startsWith('https://prod.foo.redhat.com:1337')
+          ? config.url
+          : `${BASE_URL}${config.url}`,
       };
       return updatedConfig;
     });
