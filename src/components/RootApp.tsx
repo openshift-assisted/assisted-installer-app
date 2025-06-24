@@ -4,6 +4,7 @@ import { HistoryRouterProps } from 'react-router-dom-v5-compat';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import { useInitApp } from '../hooks/useInitApp';
+import ChatBot from './Chatbot';
 
 const RootApp = () => {
   const { chromeHistory } = useChrome();
@@ -15,6 +16,7 @@ const RootApp = () => {
           allEnabledFeatures={{}}
           history={chromeHistory as unknown as HistoryRouterProps['history']}
           basename="/openshift"
+          additionalComponents={<ChatBot />}
         />
       </div>
     </React.StrictMode>
