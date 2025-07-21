@@ -21,10 +21,10 @@
     "prettier": "prettier --write src"
   },
   "dependencies": {
-    "@openshift-assisted/chatbot": "2.43.3",
-    "@openshift-assisted/locales": "2.43.3",
-    "@openshift-assisted/types": "2.43.3",
-    "@openshift-assisted/ui-lib": "2.43.3",
+    "@openshift-assisted/chatbot": "2.43.4",
+    "@openshift-assisted/locales": "2.43.4",
+    "@openshift-assisted/types": "2.43.4",
+    "@openshift-assisted/ui-lib": "2.43.4",
     "@patternfly-6/chatbot": "npm:@patternfly/chatbot@2.2.1",
     "@patternfly-6/patternfly": "npm:@patternfly/patternfly@6.2.2",
     "@patternfly-6/react-core": "npm:@patternfly/react-core@6.2.2",
