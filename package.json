@@ -21,7 +21,7 @@
     "prettier": "prettier --write src"
   },
   "dependencies": {
-    "@openshift-assisted/chatbot": "0.0.1-chatbot",
+    "@openshift-assisted/chatbot": "0.0.2-chatbot",
     "@openshift-assisted/locales": "2.43.5",
     "@openshift-assisted/types": "2.43.5",
     "@openshift-assisted/ui-lib": "2.43.5",
