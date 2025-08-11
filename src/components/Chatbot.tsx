@@ -20,16 +20,14 @@ const ChatBot = () => {
 
   const onApiCall: ChatBotWindowProps['onApiCall'] = async (input, init) => {
     const userToken = await chrome.auth.getToken();
-    return fetch(
-      `${window.ocmConfig?.configData?.apiGateway}/api/assisted_chat${input}`,
-      {
-        ...(init || {}),
-        headers: {
-          ...(init?.headers || {}),
-          Authorization: `Bearer ${userToken}`,
-        },
+    const api = new URL(window.ocmConfig?.configData?.apiGateway || '');
+    return fetch(`https://assisted-chat.${api.hostname}${input}`, {
+      ...(init || {}),
+      headers: {
+        ...(init?.headers || {}),
+        Authorization: `Bearer ${userToken}`,
       },
-    );
+    });
   };
 
   return (
