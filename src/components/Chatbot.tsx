@@ -23,7 +23,8 @@ const ChatBot = () => {
   const onApiCall = React.useCallback<ChatBotWindowProps['onApiCall']>(
     async (input, init) => {
       const userToken = await chrome.auth.getToken();
-      return fetch(`/chat${input}`, {
+      const api = new URL(window.ocmConfig?.configData?.apiGateway || '');
+      return fetch(`https://assisted-chat.${api.hostname}${input}`, {
         ...(init || {}),
         headers: {
           ...(init?.headers || {}),
