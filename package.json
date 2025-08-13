@@ -21,10 +21,10 @@
     "prettier": "prettier --write src"
   },
   "dependencies": {
-    "@openshift-assisted/chatbot": "0.1.0-chatbot",
-    "@openshift-assisted/locales": "2.44.0",
-    "@openshift-assisted/types": "2.44.0",
-    "@openshift-assisted/ui-lib": "2.44.0",
+    "@openshift-assisted/chatbot": "0.1.1-chatbot",
+    "@openshift-assisted/locales": "2.44.1",
+    "@openshift-assisted/types": "2.44.1",
+    "@openshift-assisted/ui-lib": "2.44.1",
     "@patternfly-6/chatbot": "npm:@patternfly/chatbot@6.3.2",
     "@patternfly-6/patternfly": "npm:@patternfly/patternfly@6.2.2",
     "@patternfly-6/react-core": "npm:@patternfly/react-core@6.2.2",
@@ -45,7 +45,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^11.11.4",
-    "react-router-dom": "^5.3.3"
+    "react-router-dom-v5-compat": "^6.21.2"
   },
   "devDependencies": {
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^2.0.3",
