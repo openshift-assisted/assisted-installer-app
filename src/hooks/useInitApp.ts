@@ -15,8 +15,12 @@ declare global {
 
 let initialized = false;
 
-const getBaseUrl = (): string =>
-  window.ocmConfig?.configData?.apiGateway || 'https://api.openshift.com';
+export const getBaseUrl = (): string => {
+  if (window.location.hostname === 'console.dev.redhat.com') {
+    return 'https://api.stage.openshift.com';
+  }
+  return 'https://api.openshift.com';
+};
 
 const buildAuthInterceptor = (): ((client: AxiosInstance) => AxiosInstance) => {
   const authInterceptor = (client: AxiosInstance): AxiosInstance => {

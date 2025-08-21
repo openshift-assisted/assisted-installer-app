@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { getBaseUrl } from './useInitApp';
 
 type Capabilities = { items?: { name: string; value: string }[] };
 
@@ -14,7 +15,7 @@ export const useAMSCapability = (
       setIsLoading(true);
       try {
         const res = await fetch(
-          `${window.ocmConfig?.configData?.apiGateway}/api/accounts_mgmt/v1/default_capabilities`,
+          `${getBaseUrl()}/api/accounts_mgmt/v1/default_capabilities`,
         );
         const data = (await res.json()) as Capabilities;
         const enabled = !!data.items?.some(
