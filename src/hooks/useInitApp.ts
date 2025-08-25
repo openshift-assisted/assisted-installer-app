@@ -15,11 +15,31 @@ declare global {
 
 let initialized = false;
 
+const envs: { [key: string]: string } = {
+  integration: 'https://api.integration.openshift.com',
+  staging: 'https://api.stage.openshift.com',
+  production: 'https://api.openshift.com',
+};
+
+const ENV_OVERRIDE_LOCALSTORAGE_KEY = 'ocmOverridenEnvironment';
+
+const parseEnvQueryParam = (): string | undefined => {
+  const queryParams = new URLSearchParams(window.location.search);
+  const envVal = queryParams.get('env');
+  return envVal && envs[envVal] ? envVal : undefined;
+};
+
 export const getBaseUrl = (): string => {
-  if (window.location.hostname === 'console.dev.redhat.com') {
-    return 'https://api.stage.openshift.com';
+  const queryEnv =
+    parseEnvQueryParam() || localStorage.getItem(ENV_OVERRIDE_LOCALSTORAGE_KEY);
+  if (queryEnv && envs[queryEnv]) {
+    return envs[queryEnv];
   }
-  return 'https://api.openshift.com';
+  const defaultEnv =
+    window.location.host.includes('dev') || window.location.host.includes('foo')
+      ? 'staging'
+      : 'production';
+  return envs[defaultEnv];
 };
 
 const buildAuthInterceptor = (): ((client: AxiosInstance) => AxiosInstance) => {
