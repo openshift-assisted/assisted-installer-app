@@ -10,7 +10,7 @@ import { useAMSCapability } from '../hooks/useAMSCapability';
 import { useUsername } from '../hooks/useUsername';
 import { getBaseUrl } from '../hooks/useInitApp';
 
-import '@patternfly-6/chatbot/dist/css/main.css';
+import '@patternfly/chatbot/dist/css/main.css';
 import './Chatbot.scss';
 
 const CHATBOT_CAPABILITY_NAME = 'capability.account.ai_chatbot';
