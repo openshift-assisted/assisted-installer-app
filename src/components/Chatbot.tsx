@@ -6,18 +6,18 @@ import {
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { useNavigate } from 'react-router-dom-v5-compat';
 
-import { useAMSCapability } from '../hooks/useAMSCapability';
 import { useUsername } from '../hooks/useUsername';
 import { getBaseUrl } from '../hooks/useInitApp';
 
 import '@patternfly/chatbot/dist/css/main.css';
 import './Chatbot.scss';
 
-const CHATBOT_CAPABILITY_NAME = 'capability.account.ai_chatbot';
+// Chatbot AMS capability
+// const CHATBOT_CAPABILITY_NAME = 'capability.account.ai_chatbot';
 
 const ChatBot = () => {
   const [username, isUsernameLoading] = useUsername();
-  const [isEnabled, isLoading] = useAMSCapability(CHATBOT_CAPABILITY_NAME);
+  const [isEnabled, setIsEnabled] = React.useState<boolean>();
   const chrome = useChrome();
   const navigate = useNavigate();
 
@@ -36,6 +36,21 @@ const ChatBot = () => {
     [],
   );
 
+  React.useEffect(() => {
+    void (async () => {
+      try {
+        const resp = await onApiCall('/v1/conversations');
+        if (resp.ok) {
+          setIsEnabled(true);
+        } else {
+          setIsEnabled(false);
+        }
+      } catch {
+        setIsEnabled(false);
+      }
+    })();
+  }, [onApiCall]);
+
   const openClusterDetails = React.useCallback<
     ChatBotWindowProps['openClusterDetails']
   >(
@@ -47,7 +62,6 @@ const ChatBot = () => {
 
   return (
     isEnabled &&
-    !isLoading &&
     !isUsernameLoading && (
       <div className="assisted-installer-app">
         <AIChatBot

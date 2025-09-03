@@ -50,8 +50,7 @@ export const useAMSCapability = (
               capabilities: Capability[];
             };
             const orgCapEnabled = orgCapabilities.capabilities?.some(
-              ({ name, value }) =>
-                name === 'capability.account.ai_chatbot' && value === 'true',
+              ({ name, value }) => name === capabilityName && value === 'true',
             );
             if (orgCapEnabled) {
               setIsEnabled(true);
