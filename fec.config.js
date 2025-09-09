@@ -61,6 +61,10 @@ module.exports = {
         __dirname,
         './src/components/Services.tsx',
       ),
+      './ChatbotMessageEntry': path.resolve(
+        __dirname,
+        './src/components/ChatbotMessageEntry.tsx',
+      ),
     },
     exclude: [],
     shared: [],
