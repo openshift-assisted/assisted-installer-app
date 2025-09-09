@@ -18,7 +18,8 @@
     "test": "TZ=UTC jest --verbose --no-cache --passWithNoTests",
     "postinstall": "ts-patch install && rimraf .cache",
     "verify": "npm-run-all build lint test",
-    "prettier": "prettier --write src"
+    "prettier": "prettier --write src",
+    "static": "fec static"
   },
   "dependencies": {
     "@openshift-assisted/chatbot": "0.1.9-chatbot",

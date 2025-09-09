@@ -67,7 +67,6 @@ module.exports = {
       ),
     },
     exclude: [],
-    shared: [],
   },
   routes: {
     '/api/assisted-installer-app': { host: 'http://localhost:8002' },
