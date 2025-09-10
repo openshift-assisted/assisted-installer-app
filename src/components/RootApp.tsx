@@ -11,7 +11,7 @@ const RootApp = () => {
   useInitApp();
   return (
     <React.StrictMode>
-      <div style={{ overflowY: 'auto', height: '100%' }}>
+      <div>
         <Routes
           allEnabledFeatures={{}}
           history={chromeHistory as unknown as HistoryRouterProps['history']}
