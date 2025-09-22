@@ -63,7 +63,11 @@ module.exports = {
       ),
       './ChatbotMessageEntry': path.resolve(
         __dirname,
-        './src/components/ChatbotMessageEntry.tsx',
+        './src/components/chatbot/ChatbotMessageEntry.tsx',
+      ),
+      './AsyncLSC': path.resolve(
+        __dirname,
+        './src/components/chatbot/ChatbotStateManager.tsx',
       ),
     },
     exclude: [],
