@@ -7,10 +7,10 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { useNavigate } from 'react-router-dom-v5-compat';
 
 import { useUsername } from '../hooks/useUsername';
-import { getBaseUrl } from '../hooks/useInitApp';
 
 import '@patternfly/chatbot/dist/css/main.css';
 import './Chatbot.scss';
+import { getBaseUrl } from '../config/config';
 
 // Chatbot AMS capability
 // const CHATBOT_CAPABILITY_NAME = 'capability.account.ai_chatbot';
