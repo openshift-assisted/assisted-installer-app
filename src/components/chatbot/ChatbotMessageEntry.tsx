@@ -1,8 +1,7 @@
 import * as React from 'react';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { MessageEntry, MessageEntryProps } from '@openshift-assisted/chatbot';
-
-import { getBaseUrl } from '../hooks/useInitApp';
+import { getBaseUrl } from '../../config/config';
 
 const ChatbotMessageEntry = (
   props: Omit<MessageEntryProps, 'onApiCall' | 'openClusterDetails'>,

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { getBaseUrl } from './useInitApp';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { getBaseUrl } from '../config/config';
 
 type Capability = { name: string; value: string };
 type Capabilities = { items?: Capability[] };
