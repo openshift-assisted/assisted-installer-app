@@ -93,7 +93,7 @@ class AsyncChatbot implements AsyncStateManager<IAIClient> {
       streamMessages: true,
       modelName: 'OpenShift Assisted Installer',
       docsUrl:
-        'https://docs.redhat.com/en/documentation/assisted_installer_for_openshift_container_platform/2025/html/installing_openshift_container_platform_with_the_assisted_installer/index',
+        'https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/installing/installing-on-premise-with-assisted-installer#using-the-assisted-installer_installing-on-prem-assisted',
       selectionTitle: 'OpenShift Assisted Installer',
       selectionDescription:
         'Learn more about using the Assisted Installer as a simplified method for installing and managing OpenShift Container Platform clusters.',
