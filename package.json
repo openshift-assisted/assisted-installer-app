@@ -36,6 +36,7 @@
     "@patternfly/react-tokens": "6.2.2",
     "@redhat-cloud-services/ai-client-state": "^0.14.1",
     "@redhat-cloud-services/frontend-components": "^6.0.7",
+    "@unleash/proxy-client-react": "^3.6.0",
     "axios": ">=0.22.0 <1.0.0",
     "i18next": "^20.4.0",
     "parse-url": "^9.2.0",
