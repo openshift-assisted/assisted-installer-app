@@ -5,6 +5,7 @@ import {
 } from '@openshift-assisted/chatbot';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import { useNavigate } from 'react-router-dom-v5-compat';
+import { useFlag } from '@unleash/proxy-client-react';
 
 import { useUsername } from '../hooks/useUsername';
 
@@ -16,6 +17,7 @@ import { getBaseUrl } from '../config/config';
 // const CHATBOT_CAPABILITY_NAME = 'capability.account.ai_chatbot';
 
 const ChatBot = () => {
+  const useUnifiedChatbot = useFlag('platform.arh.enabled');
   const [username, isUsernameLoading] = useUsername();
   const [isEnabled, setIsEnabled] = React.useState<boolean>();
   const chrome = useChrome();
@@ -61,6 +63,7 @@ const ChatBot = () => {
   );
 
   return (
+    !useUnifiedChatbot &&
     isEnabled &&
     !isUsernameLoading && (
       <div className="assisted-installer-app">
