@@ -96,7 +96,7 @@ class AsyncChatbot implements AsyncStateManager<IAIClient> {
         'https://docs.redhat.com/en/documentation/assisted_installer_for_openshift_container_platform/2025/html/installing_openshift_container_platform_with_the_assisted_installer/index',
       selectionTitle: 'OpenShift Assisted Installer',
       selectionDescription:
-        'Learn more about using the Assisted Installer as a simplified method for installing and managing OpenShift Container Platform clusters.',
+        'Create, configure, and install OpenShift Container Platform clusters using the Assisted Installer.',
       MessageEntryComponent: LSCMessageEntry,
       handleNewChat: async (toggleDrawer) => {
         // can't use hooks here, we are not yet within the correct React context
@@ -104,6 +104,22 @@ class AsyncChatbot implements AsyncStateManager<IAIClient> {
         toggleDrawer(false);
       },
       isPreview: true,
+      welcome: {
+        buttons: [
+          {
+            title: 'Create a new OpenShift cluster',
+            value: 'Create a new OpenShift cluster',
+          },
+          {
+            title: 'List my OpenShift clusters',
+            value: 'List my OpenShift clusters',
+          },
+          {
+            title: 'List available OpenShift versions',
+            value: 'List available OpenShift versions',
+          },
+        ],
+      },
     };
 
     return config;
