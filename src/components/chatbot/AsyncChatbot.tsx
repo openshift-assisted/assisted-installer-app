@@ -107,19 +107,19 @@ class AsyncChatbot implements AsyncStateManager<IAIClient> {
       welcome: {
         buttons: [
           {
-            title: "Create a new OpenShift cluster",
-            value: "Create a new OpenShift cluster",
+            title: 'Create a new OpenShift cluster',
+            value: 'Create a new OpenShift cluster',
           },
           {
-            title: "List my OpenShift clusters",
-            value: "List my OpenShift clusters",
+            title: 'List my OpenShift clusters',
+            value: 'List my OpenShift clusters',
           },
           {
-            title: "List available OpenShift versions",
-            value: "List available OpenShift versions",
-          }
-        ]
-      }
+            title: 'List available OpenShift versions',
+            value: 'List available OpenShift versions',
+          },
+        ],
+      },
     };
 
     return config;
