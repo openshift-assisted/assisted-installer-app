@@ -16,6 +16,22 @@ export type ClientAuthStatus = {
   model: Models;
 };
 
+export interface WelcomeButton {
+  /** Title for the welcome button */
+  title: string;
+  /** Optional message to display below the title */
+  message?: string;
+  /** Message to send when the button is clicked */
+  value: string;
+}
+
+export interface WelcomeConfig {
+  /** Welcome message content to display */
+  content?: string;
+  /** Optional array of interactive buttons */
+  buttons?: WelcomeButton[];
+}
+
 export type StateManagerConfiguration<S extends IAIClient> = {
   model: Models;
   historyManagement: boolean;
@@ -31,6 +47,7 @@ export type StateManagerConfiguration<S extends IAIClient> = {
   MessageEntryComponent?: React.ComponentType<any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   FooterComponent?: React.ComponentType<any>;
+  welcome?: WelcomeConfig;
 };
 
 export declare class AsyncStateManager<S extends IAIClient> {
