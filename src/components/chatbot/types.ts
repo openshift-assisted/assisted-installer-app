@@ -1,4 +1,3 @@
-import { ChromeAPI } from '@redhat-cloud-services/types';
 import { StateManager } from '@redhat-cloud-services/ai-client-state';
 import { IAIClient } from '@redhat-cloud-services/ai-client-common';
 
@@ -8,13 +7,6 @@ export enum Models {
   VA = 'Virtual Assistant',
   OAI = 'OpenShift assisted Installer',
 }
-
-export type ClientAuthStatus = {
-  loading: boolean;
-  isAuthenticated: boolean;
-  error?: Error;
-  model: Models;
-};
 
 export interface WelcomeButton {
   /** Title for the welcome button */
@@ -48,9 +40,10 @@ export type StateManagerConfiguration<S extends IAIClient> = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   FooterComponent?: React.ComponentType<any>;
   welcome?: WelcomeConfig;
+  routes?: string[];
 };
 
-export declare class AsyncStateManager<S extends IAIClient> {
-  isAuthenticated(chrome: ChromeAPI): Promise<ClientAuthStatus>;
-  getStateManager(chrome: ChromeAPI): StateManagerConfiguration<S>;
-}
+export type UseManagerHook = {
+  manager: StateManagerConfiguration<IAIClient> | null;
+  loading: boolean;
+};
