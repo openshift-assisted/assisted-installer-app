@@ -16,6 +16,7 @@ import { AsyncMessagePlaceholder } from './AsyncMessagePlaceholder';
 import { Message } from '@patternfly/chatbot';
 import { getBaseUrl } from '../../config/config';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { useFlag } from '@unleash/proxy-client-react';
 
 type LightspeedMessage = ScalprumComponentProps<
   Record<string, unknown>,
@@ -65,6 +66,9 @@ const useIsAuthenticated = () => {
   const chrome = useChrome();
   const [isLoading, setIsLoading] = React.useState(true);
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const isEnabled = useFlag(
+    'platform.chatbot.openshift-assisted-installer.enabled',
+  );
 
   React.useEffect(() => {
     (async () => {
@@ -88,6 +92,13 @@ const useIsAuthenticated = () => {
       }
     })();
   }, []);
+
+  if (!isEnabled) {
+    return {
+      loading: false,
+      isAuthenticated: false,
+    };
+  }
 
   return {
     isAuthenticated,
