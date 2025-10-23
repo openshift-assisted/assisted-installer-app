@@ -1,4 +1,6 @@
 import React from 'react';
+import { ChromeAPI } from '@redhat-cloud-services/types';
+import { IAIClient } from '@redhat-cloud-services/ai-client-common';
 import { createClientStateManager } from '@redhat-cloud-services/ai-client-state';
 import { Message as MessageType } from '@redhat-cloud-services/ai-client-state';
 import {
@@ -10,12 +12,16 @@ import {
   ScalprumComponentProps,
 } from '@scalprum/react-core';
 
-import { Models, StateManagerConfiguration, UseManagerHook } from './types';
+import {
+  AsyncStateManager,
+  ClientAuthStatus,
+  Models,
+  StateManagerConfiguration,
+} from './types';
 import ARH_BOT_ICON from '../../assets/Ask_Red_Hat_OFFICIAL-whitebackground.svg';
 import { AsyncMessagePlaceholder } from './AsyncMessagePlaceholder';
 import { Message } from '@patternfly/chatbot';
 import { getBaseUrl } from '../../config/config';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 type LightspeedMessage = ScalprumComponentProps<
   Record<string, unknown>,
@@ -61,44 +67,10 @@ const LSCMessageEntry = ({
   );
 };
 
-const useIsAuthenticated = () => {
-  const chrome = useChrome();
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-
-  React.useEffect(() => {
-    (async () => {
-      const api = new URL(getBaseUrl());
-      const token = await chrome.auth.getToken();
-      try {
-        const response = await fetch(
-          `https://assisted-chat.${api.hostname}/v1/conversations`,
-          {
-            method: 'GET',
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        );
-        setIsAuthenticated(response.ok);
-      } catch (error) {
-        console.error('Error checking authentication:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
-
-  return {
-    isAuthenticated,
-    isLoading,
-  };
-};
-
-const useStateManager = (): UseManagerHook => {
-  const chrome = useChrome();
-  const { isAuthenticated, isLoading } = useIsAuthenticated();
-  const manager = React.useMemo(() => {
+class AsyncChatbot implements AsyncStateManager<IAIClient> {
+  getStateManager(
+    chrome: ChromeAPI,
+  ): StateManagerConfiguration<LightspeedClient> {
     const api = new URL(getBaseUrl());
     const client = new LightspeedClient({
       baseUrl: `https://assisted-chat.${api.hostname}`,
@@ -148,20 +120,37 @@ const useStateManager = (): UseManagerHook => {
           },
         ],
       },
-      routes: ['/openshift/assisted-installer/*'],
     };
 
     return config;
-  }, []);
-
-  if (isLoading) {
-    return { manager: null, loading: true };
   }
-  if (!isAuthenticated) {
-    return { manager: null, loading: false };
+  async isAuthenticated(chrome: ChromeAPI): Promise<ClientAuthStatus> {
+    const token = await chrome.auth.getToken();
+    const authStatus: ClientAuthStatus = {
+      loading: true,
+      isAuthenticated: false,
+      model: Models.OAI,
+    };
+    const api = new URL(getBaseUrl());
+    try {
+      const response = await fetch(
+        `https://assisted-chat.${api.hostname}/v1/conversations`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      authStatus.isAuthenticated = response.ok;
+    } catch (error) {
+      console.error('Error checking authentication:', error);
+      authStatus.isAuthenticated = false;
+    } finally {
+      authStatus.loading = false;
+    }
+    return authStatus;
   }
+}
 
-  return { manager, loading: false };
-};
-
-export default useStateManager;
+export default new AsyncChatbot();

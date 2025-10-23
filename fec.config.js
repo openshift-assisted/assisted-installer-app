@@ -65,9 +65,9 @@ module.exports = {
         __dirname,
         './src/components/chatbot/ChatbotMessageEntry.tsx',
       ),
-      './useAsyncChatbot': path.resolve(
+      './AsyncChatbot': path.resolve(
         __dirname,
-        './src/components/chatbot/useAsyncChatbot.tsx',
+        './src/components/chatbot/AsyncChatbot.tsx',
       ),
     },
     exclude: [],
