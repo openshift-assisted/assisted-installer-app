@@ -22,7 +22,7 @@
     "static": "fec static"
   },
   "dependencies": {
-    "@openshift-assisted/chatbot": "0.1.10-chatbot",
+    "@openshift-assisted/chatbot": "0.1.16-chatbot",
     "@openshift-assisted/locales": "2.47.0",
     "@openshift-assisted/types": "2.47.0",
     "@openshift-assisted/ui-lib": "2.47.0",
