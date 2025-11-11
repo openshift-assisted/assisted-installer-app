@@ -24,7 +24,7 @@
   "dependencies": {
     "@openshift-assisted/chatbot": "0.1.16-chatbot",
     "@openshift-assisted/locales": "2.47.1",
-    "@openshift-assisted/types": "2.47.1",
+    "@openshift-assisted/types": "2.47.2",
     "@openshift-assisted/ui-lib": "2.47.1",
     "@patternfly/chatbot": "6.4.1",
     "@patternfly/patternfly": "6.4.0",
