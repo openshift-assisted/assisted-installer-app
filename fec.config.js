@@ -73,7 +73,7 @@ module.exports = {
     exclude: [],
   },
   routes: {
-    '/api/assisted-installer-app': { host: 'http://localhost:8002' },
-    '/apps/assisted-installer-app': { host: 'http://localhost:8002' }
+    '/api/assisted-installer-app': { host: 'http://localhost:8003' },
+    '/apps/assisted-installer-app': { host: 'http://localhost:8003' }
   }
 };

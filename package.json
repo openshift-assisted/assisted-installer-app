@@ -13,7 +13,7 @@
     "lint:js": "eslint src",
     "lint:js:fix": "eslint src --fix",
     "patch:hosts": "fec patch-etc-hosts",
-    "start": "HOT=true fec dev --clouddotEnv=stage --uiEnv=stable",
+    "start": "HOT=true fec dev --clouddotEnv=prod --uiEnv=stable",
     "start:federated": "fec static",
     "test": "TZ=UTC jest --verbose --no-cache --passWithNoTests",
     "postinstall": "ts-patch install && rimraf .cache",
