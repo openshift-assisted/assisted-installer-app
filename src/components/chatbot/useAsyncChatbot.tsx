@@ -22,6 +22,7 @@ type LightspeedMessage = ScalprumComponentProps<
   {
     message: MessageType<LightSpeedCoreAdditionalProperties>;
     avatar: string;
+    conversationId: string | undefined;
   }
 >;
 
@@ -41,9 +42,11 @@ const AsyncMessageError = () => (
 const LSCMessageEntry = ({
   message,
   avatar,
+  conversationId,
 }: {
   message: MessageType<LightSpeedCoreAdditionalProperties>;
   avatar: string;
+  conversationId: string;
 }) => {
   const messageProps: LightspeedMessage = {
     message,
@@ -51,6 +54,7 @@ const LSCMessageEntry = ({
     scope: 'assistedInstallerApp',
     module: './ChatbotMessageEntry',
     fallback: null,
+    conversationId,
   };
   return (
     <ScalprumComponent
