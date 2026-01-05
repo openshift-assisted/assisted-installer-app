@@ -9,6 +9,7 @@ objects:
     metadata:
       name: assisted-installer-app
     spec:
+      feoConfigEnabled: true
       envName: ${ENV_NAME}
       title: Assisted Installer
       deploymentRepo: https://github.com/openshift-assisted/assisted-installer-app
@@ -31,7 +32,7 @@ objects:
           - id: 'assisted-installer-app'
             module: './RootApp'
             routes:
-              - pathname: /openshift/assisted-installer-app
+              - pathname: /openshift/assisted-installer
 
 parameters:
   - name: ENV_NAME
