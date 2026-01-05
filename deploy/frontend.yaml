@@ -25,7 +25,7 @@ objects:
           APIKey: dDiG16r8ACXqQ1uKlsDpvBVVQKojfQ3Q
           APIKeyDev: zvqhEZB8cBJe798gf7xqn0Sue8TWqk1v
         manifestLocation: '/apps/assisted-installer-app/fed-mods.json'
-        config:
+        moduleConfig:
           ssoScopes:
             - rhfull
         modules:
