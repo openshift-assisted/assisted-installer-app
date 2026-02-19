@@ -1,5 +1,5 @@
 import { Api, Config } from '@openshift-assisted/ui-lib/ocm';
-import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AxiosInstance } from 'axios';
 
 import '../i18n';
 import { getBaseUrl } from '../config/config';
@@ -20,11 +20,8 @@ const buildAuthInterceptor = (): ((client: AxiosInstance) => AxiosInstance) => {
   const authInterceptor = (client: AxiosInstance): AxiosInstance => {
     client.interceptors.request.use((config) => {
       const BASE_URL = config.baseURL || getBaseUrl();
-      const updatedConfig: AxiosRequestConfig = {
-        ...config,
-        url: `${BASE_URL}${config.url}`,
-      };
-      return updatedConfig;
+      config.url = `${BASE_URL}${config.url}`;
+      return config;
     });
     return client;
   };
