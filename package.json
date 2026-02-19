@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "@openshift-assisted/chatbot": "0.1.19-chatbot",
-    "@openshift-assisted/locales": "2.49.0",
-    "@openshift-assisted/types": "2.49.0",
-    "@openshift-assisted/ui-lib": "2.49.0",
+    "@openshift-assisted/locales": "2.50.0",
+    "@openshift-assisted/types": "2.50.0",
+    "@openshift-assisted/ui-lib": "2.50.0",
     "@patternfly/chatbot": "6.4.1",
     "@patternfly/patternfly": "6.4.0",
     "@patternfly/react-code-editor": "6.4.0",
