@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
 ---
 apiVersion: v1
 kind: Template
@@ -16,6 +17,24 @@ objects:
       frontend:
         paths:
           - /apps/assisted-installer-app
+      searchEntries:
+        - id: assisted-installer-search
+          title: Assisted Installer
+          href: /openshift/assisted-installer
+          description: Create and manage OpenShift clusters using the assisted installation method.
+          alt_title:
+            - ocm
+            - openshift cluster manager
+            - install openshift
+            - cluster installation
+            - bare metal
+            - Download ISO
+            - OpenShift virtualization
+          permissions:
+            - method: loosePermissions
+              args:
+                - - inventory:*:read
+                - clusters:*:read
       API:
         versions:
           - v1
