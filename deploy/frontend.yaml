@@ -20,7 +20,7 @@ objects:
       searchEntries:
         - id: assisted-installer-search
           title: Assisted Installer
-          href: /openshift/assisted-installer
+          href: https://console.redhat.com/openshift/assisted-installer/clusters/~new
           description: Create and manage OpenShift clusters using the assisted installation method.
           alt_title:
             - ocm
