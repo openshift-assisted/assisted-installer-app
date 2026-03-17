@@ -34,7 +34,7 @@ objects:
             - method: loosePermissions
               args:
                 - - inventory:*:read
-                - clusters:*:read
+                - - clusters:*:read
       API:
         versions:
           - v1
