@@ -46,7 +46,7 @@
     "react-i18next": "^11.11.4",
     "react-router-dom-v5-compat": "^6.21.2",
     "react-monaco-editor": "^0.55.0",
-    "preact": "10.28.2"
+    "preact": "10.29.1"
   },
   "devDependencies": {
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^2.0.3",
