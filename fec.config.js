@@ -41,10 +41,6 @@ module.exports = {
         __dirname,
         './src/components/AssistedInstallerDetailCard.tsx',
       ),
-      './AssistedInstallerExtraDetailCard': path.resolve(
-        __dirname,
-        './src/components/AssistedInstallerExtraDetailCard.tsx',
-      ),
       './ClusterStatus': path.resolve(
         __dirname,
         './src/components/ClusterStatus.tsx',
