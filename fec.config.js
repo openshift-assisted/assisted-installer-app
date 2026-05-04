@@ -53,6 +53,10 @@ module.exports = {
         __dirname,
         './src/components/HostsClusterDetailTab.tsx',
       ),
+      './getAddHostsTabState': path.resolve(
+        __dirname,
+        './src/components/getAddHostsTabState.ts',
+      ),
       './Services': path.resolve(
         __dirname,
         './src/components/Services.tsx',
