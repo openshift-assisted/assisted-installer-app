@@ -20,7 +20,7 @@ jobs:
     outputs:
       skip: ${{ steps.check.outputs.skip }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Check if PR is draft
@@ -38,7 +38,7 @@ jobs:
     if: needs.preflight-check.outputs.skip == 'false'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ vars.NODEJS_VERSION }}
@@ -50,7 +50,7 @@ jobs:
     if: needs.preflight-check.outputs.skip == 'false'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ vars.NODEJS_VERSION }}
