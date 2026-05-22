@@ -27,7 +27,7 @@
     "@openshift-assisted/types": "2.53.0",
     "@openshift-assisted/ui-lib": "2.53.0",
     "@patternfly/chatbot": "6.4.1",
-    "@patternfly/patternfly": "6.4.0",
+    "@patternfly/patternfly": "6.5.2",
     "@patternfly/react-code-editor": "6.4.1",
     "@patternfly/react-core": "6.4.1",
     "@patternfly/react-icons": "6.4.0",
