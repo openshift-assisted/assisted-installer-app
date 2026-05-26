@@ -69,6 +69,10 @@ module.exports = {
         __dirname,
         './src/components/chatbot/useAsyncChatbot.tsx',
       ),
+      './computeAIClusterMetrics': path.resolve(
+        __dirname,
+        './src/components/computeAIClusterMetrics.ts',
+      ),
     },
     exclude: [],
   },
