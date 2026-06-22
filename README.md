@@ -24,7 +24,7 @@ This builds the Module Federation bundle and serves it on port 8003.
 In uhc-portal, run:
 
 ```
-LOCAL_APPS=assisted-installer-app:8003 LOCAL_APP_HOST=localhost yarn dev
+LOCAL_APPS=assisted-installer-app:8003 LOCAL_APP_HOST=localhost npm run dev
 ```
 
 This tells the uhc-portal dev server to load `assisted-installer-app` from your local machine instead of the CDN, so changes you make here are reflected immediately in the portal.
