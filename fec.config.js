@@ -57,18 +57,7 @@ module.exports = {
         __dirname,
         './src/components/getAddHostsTabState.ts',
       ),
-      './Services': path.resolve(
-        __dirname,
-        './src/components/Services.tsx',
-      ),
-      './ChatbotMessageEntry': path.resolve(
-        __dirname,
-        './src/components/chatbot/ChatbotMessageEntry.tsx',
-      ),
-      './useAsyncChatbot': path.resolve(
-        __dirname,
-        './src/components/chatbot/useAsyncChatbot.tsx',
-      ),
+      './Services': path.resolve(__dirname, './src/components/Services.tsx'),
       './computeAIClusterMetrics': path.resolve(
         __dirname,
         './src/components/computeAIClusterMetrics.ts',
@@ -78,6 +67,6 @@ module.exports = {
   },
   routes: {
     '/api/assisted-installer-app': { host: 'http://localhost:8003' },
-    '/apps/assisted-installer-app': { host: 'http://localhost:8003' }
-  }
+    '/apps/assisted-installer-app': { host: 'http://localhost:8003' },
+  },
 };

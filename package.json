@@ -22,11 +22,9 @@
     "static": "fec static"
   },
   "dependencies": {
-    "@openshift-assisted/chatbot": "0.1.19-chatbot",
     "@openshift-assisted/locales": "2.54.1",
     "@openshift-assisted/types": "2.54.1",
     "@openshift-assisted/ui-lib": "2.54.1",
-    "@patternfly/chatbot": "6.4.1",
     "@patternfly/patternfly": "6.4.0",
     "@patternfly/react-code-editor": "6.4.1",
     "@patternfly/react-core": "6.4.1",
@@ -34,7 +32,6 @@
     "@patternfly/react-styles": "6.4.0",
     "@patternfly/react-table": "6.4.1",
     "@patternfly/react-tokens": "6.4.0",
-    "@redhat-cloud-services/ai-client-state": "^0.15.0",
     "@redhat-cloud-services/frontend-components": "^7.0.0",
     "@unleash/proxy-client-react": "^5.0.0",
     "axios": "^1.16.1",
