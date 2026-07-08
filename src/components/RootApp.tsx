@@ -7,7 +7,6 @@ import {
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import { useInitApp } from '../hooks/useInitApp';
-import ChatBot from './Chatbot';
 
 const RootApp = () => {
   const { chromeHistory } = useChrome();
@@ -19,7 +18,6 @@ const RootApp = () => {
       <HistoryRouter history={history} basename={basename}>
         <div>
           <Routes allEnabledFeatures={{}} />
-          <ChatBot />
         </div>
       </HistoryRouter>
     </React.StrictMode>
