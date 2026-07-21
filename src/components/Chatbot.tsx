@@ -4,7 +4,7 @@ import {
   ChatBotWindowProps,
 } from '@openshift-assisted/chatbot';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
-import { useNavigate } from 'react-router-dom-v5-compat';
+import { useNavigate } from 'react-router';
 import { useFlag } from '@unleash/proxy-client-react';
 
 import { useUsername } from '../hooks/useUsername';

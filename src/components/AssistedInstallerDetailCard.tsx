@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AssistedInstallerDetailCard as AIDetailsCard } from '@openshift-assisted/ui-lib/ocm';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
-import { HistoryRouterProps } from 'react-router-dom-v5-compat';
+import { HistoryRouterProps } from 'react-router';
 
 import { useInitApp } from '../hooks/useInitApp';
 
