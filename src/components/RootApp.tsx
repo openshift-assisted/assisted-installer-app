@@ -3,7 +3,7 @@ import { UILibRoutes as Routes } from '@openshift-assisted/ui-lib/ocm';
 import {
   unstable_HistoryRouter as HistoryRouter,
   HistoryRouterProps,
-} from 'react-router-dom-v5-compat';
+} from 'react-router';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 import { useInitApp } from '../hooks/useInitApp';
