@@ -126,17 +126,19 @@ const useStateManager = (): UseManagerHook => {
       modelName: 'OpenShift Assisted Installer',
       docsUrl:
         'https://docs.redhat.com/en/documentation/assisted_installer_for_openshift_container_platform/2025/html/installing_openshift_container_platform_with_the_assisted_installer/index',
-      selectionTitle: 'OpenShift Assisted Installer',
+      selectionTitle: 'OpenShift Assisted Installer (Deprecated)',
       selectionDescription:
-        'Create, configure, and install OpenShift Container Platform clusters using the Assisted Installer.',
+        'Create, configure, and install OpenShift Container Platform clusters using the Assisted Installer (Deprecated).',
       MessageEntryComponent: LSCMessageEntry,
       handleNewChat: async (toggleDrawer) => {
         // can't use hooks here, we are not yet within the correct React context
         await stateManager.createNewConversation();
         toggleDrawer(false);
       },
-      isPreview: true,
+      isPreview: false,
       welcome: {
+        content:
+          'The OpenShift Assisted Installer AI Assistant will be removed soon.',
         buttons: [
           {
             title: 'Create a new OpenShift cluster',
