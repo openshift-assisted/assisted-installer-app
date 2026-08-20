@@ -45,10 +45,6 @@ module.exports = {
         __dirname,
         './src/components/ClusterStatus.tsx',
       ),
-      './FeatureSupportsLevel': path.resolve(
-        __dirname,
-        './src/components/FeatureSupportsLevel.tsx',
-      ),
       './HostsClusterDetailTab': path.resolve(
         __dirname,
         './src/components/HostsClusterDetailTab.tsx',
