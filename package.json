@@ -24,7 +24,7 @@
   "dependencies": {
     "@openshift-assisted/locales": "2.55.4",
     "@openshift-assisted/types": "2.55.4",
-    "@openshift-assisted/ui-lib": "2.55.4",
+    "@openshift-assisted/ui-lib": "2.56.2",
     "@patternfly/patternfly": "6.4.0",
     "@patternfly/react-code-editor": "6.4.1",
     "@patternfly/react-core": "6.4.1",
